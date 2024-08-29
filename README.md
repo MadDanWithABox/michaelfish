@@ -1,54 +1,26 @@
-<img width="1280" alt="Katana Cover" src="https://user-images.githubusercontent.com/24438869/111058809-03a5a100-84b7-11eb-958a-a846b1a277b1.png">
-
 ## Introduction 🌻
-> **Katana** project is a template for ASAP 🚀 ML application deployment
->
+
+> **Michael Fish** This project is a weather prediction app, based on a fork of [**Katana**](https://github.com/shaz13/katana) a template for ASAP 🚀 ML application deployment.
+
+
+> **Why MichaelFish?** [Michael Fish](https://en.wikipedia.org/wiki/Michael_Fish) is a famous ritish weather forecaster, who notably failed to predict a major tornado in a well-publicised TV [gaffe](https://www.youtube.com/watch?v=NnxjZ-aFkjs). This project is also not built with a focus on accuracy of prediction, but rather as an illustration of a breadth-first ML deployment.
 
 ### Features 🎉
-1. FastAPI inbuilt
-2. Swagger UI and uvicorn integration
-3. Docker ready configuration
-4. Integrated GitHub actions
-5. Production ready code 🚀
+1. Standard weather prediction based on date
+2. Advanced weather prediction based on satellite-based information
+3. Model evaluation results
+
 
 ## Set-up Instructions 🔧
-We recommend using flask default serving for development and uvicorn server for production
-
-We included following setup instructions;
-
-1. Local development 
-2. Docker supported deployment
-
-
-### Local Development 👨🏻‍💻
-1. Clone this repo with `git@github.com:shaz13/katana.git`
-2. Set up environment using `python3 -m venv .env`
-3. Activate envrionment using 
-```
-# Linux / Mac / Unix
-$ source .env/bin/activate
-
-# Windows
-$ \.env\Scripts\activate
-```
-4. Install requirements using `pip install -r requirements.txt`
-5. For debugging run from root - `python main.py`
-6. Deploy using `Procfile` or `bash scripts/launch.sh`
-7. Your API is being served at `localhost:9000`
+I have built this applet with a strong preference for Docker-based development and deployment. Non-docker-based deployment strategies from the original katana project may not be supported, and have not been maintained/updated
 
 ### Docker Setup ⛴
-1. Clone this repo with `git@github.com:shaz13/katana.git`
+1. Clone this repo with `git@github.com/MadDanWithABox/michaelfish.git`
 2. Install docker in your system
 3. Run `docker-compose up`
-4. Your local port is mapped and being served at `localhost:9000`
-
-![Capture](https://user-images.githubusercontent.com/24438869/111058914-bd9d0d00-84b7-11eb-9d3c-ecd2e4331013.PNG)
-
+4. Your local port is mapped and being served at `localhost:8000`
 
 
 ## Contributors 😎
-1. Mohammad Shahebaz - @shaz13
-2. Aditya Soni - @AdityaSoni19031997
+1. Daniel Jordan
 
-## License 👩🏻‍💼
-MIT License
