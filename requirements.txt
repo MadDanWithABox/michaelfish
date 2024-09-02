@@ -1,8 +1,9 @@
-configparser~=7
+configparser
 fastapi==0.63.0
 flake8==3.8.4
 loguru==0.5.3
-numpy~=1
-pandas~=2
+numpy
+pandas
+prometheus_client
 scikit-learn==0.24.1
 uvicorn==0.13.4
