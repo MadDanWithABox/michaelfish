@@ -5,6 +5,11 @@ from apis.v1.iris import router as iris_ns
 from apis.v1.boston import router as boston_ns
 from apis.v1.london import router as london_ns
 
+import configparser
+
+config = configparser.ConfigParser()
+config.read('.config')
+
 # Initialize logging
 logger.add("./logs/katana.log", rotation="500 MB")
 logger.info("Initializing application : MichaelFish")

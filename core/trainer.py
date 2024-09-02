@@ -1,3 +1,5 @@
+import configparser
+
 from loguru import logger
 from core.datasets import IrisDatasetLoader, BostonDatasetLoader, LondonWeatherLoader
 from sklearn import svm
@@ -5,6 +7,10 @@ from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
+config = configparser.ConfigParser()
+config.read('.config')
+data_path = config['settings']['DATA_PATH']
+verbose = int(config['settings']['VERBOSE'])
 
 class IrisTrainerInstance:
     def __init__(self):
@@ -37,7 +43,7 @@ class BostonHousePriceTrainerInstance:
 
 class LondonWeatherTrainerInstance:
     def __init__(self):
-        self.dataloader = LondonWeatherLoader(path="data.csv")
+        self.dataloader = LondonWeatherLoader(path=data_path)
 
     def train(self, use_full_data=False):
         self.X_train, _, self.Y_train, _ = self.dataloader.load_data(full=use_full_data)

@@ -3,6 +3,12 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 from loguru import logger
 
+import configparser
+
+config = configparser.ConfigParser()
+config.read('.config')
+
+verbose = int(config['settings']['VERBOSE'])
 
 class IrisDatasetLoader:
     def __init__(self):
@@ -26,16 +32,15 @@ class BostonDatasetLoader:
 class LondonWeatherLoader:
     def __init__(self, path):
         self.df = pd.read_csv(path)
-        self.log_min_max_values()
+        if verbose == 1:
+            self.log_min_max_values()
 
     def log_min_max_values(self):
         logger.info("Logging min and max values for each column")
         for column in self.df.columns:
             min_value = self.df[column].min()
             max_value = self.df[column].max()
-            #logger.info(f"Column: {column}, Min: {min_value}, Max: {max_value}")
-
-
+            logger.info(f"Column: {column}, Min: {min_value}, Max: {max_value}")
     
     def load_data(self, full=False):
        
