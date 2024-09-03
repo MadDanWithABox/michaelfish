@@ -5,6 +5,7 @@ from apis.models.base import TrainingStatusResponse, EvalStatusResponse
 from apis.models.weather import LondonWeatherAdvancedRequestModel, LondonWeatherRequestModel, LondonWeatherResponseModel
 from core.trainer import LondonWeatherTrainerInstance, LondonWeatherAdvancedTrainerInstance
 import pandas as pd
+from math import pi, sin, cos
 from datetime import datetime
 
 router = APIRouter(prefix="/london")
@@ -48,6 +49,11 @@ async def london_weather_prediction(body: LondonWeatherRequestModel):
     month = date.month
     day = date.day
     day_of_week = date.dayofweek
+    day_of_year = date.dayofyear
+            
+    # Apply sine and cosine transformations to encode seasonal patterns
+    sin_doy = sin(2 * pi * day_of_year / 365)
+    cos_doy = cos(2 * pi * day_of_year / 365)
 
     # Prepare payload
     payload = pd.DataFrame({
@@ -55,7 +61,9 @@ async def london_weather_prediction(body: LondonWeatherRequestModel):
         'year': [year],
         'month': [month],
         'day': [day],
-        'day_of_week': [day_of_week]
+        'day_of_week': [day_of_week],
+        'sin_day_of_year': [sin_doy],
+        'cos_doy': [cos_doy]
     })
 
     # Predict using the model
