@@ -52,6 +52,7 @@ async def metrics_middleware(request: Request, call_next):
     return response
 
 if verbose == 1:
+    logger.info("VERBOSITY LEVEL SET TO 1")
     logger.info("Adding Iris namespace route")
     logger.info("Adding Boston namespace route")
     logger.info("Adding London Weather namespace route")
